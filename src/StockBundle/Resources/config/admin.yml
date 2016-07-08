@@ -1,0 +1,29 @@
+# src/StockBundle/Resources/config/admin.yml
+
+services:
+    stock.admin.category:
+        class: StockBundle\Admin\CategoryAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Сущности", label: "Категории" }
+        arguments: [null, StockBundle\Entity\Category, SonataAdminBundle:CRUD]
+        calls:
+            - [ setTranslationDomain, [StockBundle]]
+
+    stock.admin.product:
+        class: StockBundle\Admin\ProductAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Сущности", label: "Товары" }
+        arguments: [null, StockBundle\Entity\Product, SonataAdminBundle:CRUD]
+        calls:
+            - [ setTranslationDomain, [StockBundle]]
+
+    sonata.admin.image:
+        class: StockBundle\Admin\ImageAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Widgets", label: "Product Image" , show_in_dashboard: false }
+        arguments:
+            - ~
+            - StockBundle\Entity\Image
+            - ~
+        calls:
+            - [ setTranslationDomain, [StockBundle]]

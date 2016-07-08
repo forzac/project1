@@ -1,0 +1,40 @@
+{% extends 'SonataAdminBundle::standard_layout.html.twig' %}
+
+{% block breadcrumb %}
+    <li><a href="{{ url('main') }}">{% trans %}Main{% endtrans %}</a><span class="divider">/</span></li>
+    <li class="active">Products</li>
+{% endblock %}
+
+{% block content %}
+    <h1>View Products</h1>
+    <br/>
+    <div class="col-md-8">
+        <table class="table product table-bordered">
+            <thead>
+            <tr>
+                <th>id</th>
+                <th>Name</th>
+                <th>Discription</th>
+                <th>Quantity</th>
+                <th>Images</th>
+                <th>Category</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+
+        <a href="{{ path('new_product') }}" class="btn btn-success">Add new</a>
+    </div>
+
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    {% javascripts '@StoreBundle/Resources/public/js/products.js' %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}

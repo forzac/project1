@@ -1,0 +1,76 @@
+api_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: ApiBundle:Default:index }
+
+categories:
+    pattern:  /api/categories
+    defaults: { _controller: ApiBundle:Category:getCategories, _format: ~ }
+    requirements:
+        _method: GET
+
+category:
+    pattern:  /api/categories/{id}
+    defaults: { _controller: ApiBundle:Category:getCategory, _format: ~ }
+    requirements:
+        _method: GET
+        id: "\d+"
+
+category_delete:
+    pattern:  /api/categories/{id}
+    defaults: { _controller: ApiBundle:Category:deleteCategory, _format: ~ }
+    requirements:
+        _method: DELETE
+
+
+add_category:
+    pattern:  /api/categories
+    defaults: { _controller: ApiBundle:Category:newCategory, _format: ~ }
+    requirements:
+        _method: POST
+
+edit_category:
+    pattern:  /api/categories/{id}
+    defaults: { _controller: ApiBundle:Category:editCategory, _format: ~ }
+    requirements:
+        _method: PUT
+
+products:
+    pattern:  /api/products
+    defaults: { _controller: ApiBundle:Product:getProducts, _format: ~ }
+    requirements:
+        _method: GET
+
+product:
+    pattern:  /api/products/{id}
+    defaults: { _controller: ApiBundle:Product:getProduct, _format: ~ }
+    requirements:
+        _method: GET
+        id: "\d+"
+
+product_delete:
+    pattern:  /api/products/{id}
+    defaults: { _controller: ApiBundle:Product:deleteProduct, _format: ~ }
+    requirements:
+        _method: DELETE
+
+add_product:
+    pattern:  /api/products
+    defaults: { _controller: ApiBundle:Product:newProduct, _format: ~ }
+    requirements:
+        _method: POST
+
+edit_product:
+    pattern:  /api/products/{id}
+    defaults: { _controller: ApiBundle:Product:editProduct, _format: ~ }
+    requirements:
+        _method: PUT
+
+image_upload:
+    pattern:  /api/products/upload/{id}
+    defaults: { _controller: ApiBundle:Product:upload, id: null, _format: ~ }
+
+image_delete:
+    pattern:  /api/products/images/{id}
+    defaults: { _controller: ApiBundle:Product:deleteImage, _format: ~ }
+    requirements:
+        _method: DELETE

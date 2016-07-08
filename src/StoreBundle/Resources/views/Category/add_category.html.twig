@@ -1,0 +1,33 @@
+{% extends 'SonataAdminBundle::standard_layout.html.twig' %}
+
+{% block breadcrumb %}
+    <li><a href="{{ url('main') }}">{% trans %}Main{% endtrans %}</a><span class="divider">/</span></li>
+    <li><a href="{{ url('view_category') }}">{% trans %}Categories{% endtrans %}</a><span class="divider">/</span></li>
+    <li class="active">New Category</li>
+{% endblock %}
+
+{% block content %}
+    <h1>Add new category</h1>
+    <br/>
+    <div class="col-md-4">
+        <div class="panel panel-success">
+            <div class="panel-heading">Add new category</div>
+            <div class="panel-body">
+                <form action="{{ path('add_category') }}" id="create" {{ form_enctype(form) }} method="POST">
+                    {{ form_widget(form) }}
+                    <br/>
+                    <input type="submit" value="Create" class="btn btn-success create">
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    {% javascripts '@StoreBundle/Resources/public/js/categories.js' %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}

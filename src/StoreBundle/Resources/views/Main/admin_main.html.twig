@@ -1,0 +1,37 @@
+{% extends 'SonataAdminBundle::standard_layout.html.twig' %}
+
+{% block breadcrumb %}
+    <li><a href="{{ url('main') }}">{% trans %}Main{% endtrans %}</a><span class="divider">/</span></li>
+{% endblock %}
+
+{% block content %}
+    <h1>Main admin panel</h1>
+    <div class="col-md-6">
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>Entity name</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><a href="{{ path('view_category') }}">Category</a></td>
+                    <td>
+                        <a href="{{ path('view_category') }}" class="btn btn-info">View</a>
+                        <a href="{{ path('new_category') }}" class="btn btn-success">Add new</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td><a href="{{ path('view_products') }}">Product</a></td>
+                    <td>
+                        <a href="{{ path('view_products') }}" class="btn btn-info">View</a>
+                        <a href="{{ path('new_product') }}" class="btn btn-success">Add new</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+    </div>
+{% endblock %}
+
+

@@ -1,0 +1,34 @@
+body {
+    background: #333;
+}
+
+.main {
+     min-height: 800px;
+     background: #F8F8F8;
+     border: none;
+     box-shadow: none;
+     margin: -10px;
+ }
+
+.table {
+     width: 60%;
+ }
+
+.table-bordered {
+     width: 40%;
+ }
+
+footer {
+    margin-top: 20px;
+    background: #F8F8F8;
+    border-radius:5px;
+    min-height: 100px;
+ }
+
+table > th {
+    border: 2px grey;
+ }
+
+#view {
+    background: url("/web/images/icon-view.png");
+ }
